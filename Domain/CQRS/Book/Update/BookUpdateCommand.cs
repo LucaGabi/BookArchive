@@ -47,7 +47,7 @@ namespace BookArchive.Application.CQRS
                     }
 
                     var entity = BookUpdateMap.ToModel(request);
-                    uow.BooksRepository.Update(entity,null);
+                    uow.BooksRepository.Update(entity);
                     await uow.Save();
                     return BookGetMap.ToDTO(entity);
                 }

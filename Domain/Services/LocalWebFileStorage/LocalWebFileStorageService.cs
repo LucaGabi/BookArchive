@@ -49,14 +49,5 @@ namespace BookArchive.Application
             return GetType().Name;
         }
 
-        public T GetParams<T>()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetParams<T>(T Value)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

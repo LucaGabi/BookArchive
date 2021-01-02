@@ -23,7 +23,7 @@ namespace BookArchive.Application.CQRS
             public async Task<CQRSResult<BookGetDTO>> Handle(BookDeleteCommand request, CancellationToken cancellationToken)
             {
                 var book = uow.BooksRepository.GetById(request.Id);
-                if (book != null) uow.BooksRepository.Delete(book,null);
+                if (book != null) uow.BooksRepository.Delete(book);
                 else return BookGetMap.ToDTO(book).AsCQRSResult(code: 404);
                 await uow.Save(cancellationToken);
                 return BookGetMap.ToDTO(book);

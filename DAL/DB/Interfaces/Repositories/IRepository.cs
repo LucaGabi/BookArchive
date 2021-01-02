@@ -5,7 +5,6 @@ using System.Linq.Expressions;
 
 namespace BookArchive.DAL
 {
-    //public interface IRepository<T,TUnitOfWork>
     public interface IRepository<T>
     {
         public IEnumerable<T> Get();

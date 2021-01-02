@@ -24,7 +24,7 @@ namespace BookArchive.Application.CQRS
                 if (exists)
                 {
                     var entity = request.ToModel();
-                    uow.AuthorsRepository.Update(entity,null);
+                    uow.AuthorsRepository.Update(entity);
                     await uow.Save();
                     return AuthorGetMap.ToDTO(entity);
                 }

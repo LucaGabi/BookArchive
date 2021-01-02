@@ -20,7 +20,7 @@ namespace BookArchive.Application.CQRS
             public async Task<CQRSResult<AuthorGetDTO>> Handle(AuthorAddCommand request, CancellationToken cancellationToken)
             {
                 var entity = request.ToModel();
-                uow.AuthorsRepository.Add(entity,null);
+                uow.AuthorsRepository.Add(entity);
                 await uow.Save(cancellationToken);
 
                 return AuthorGetMap.ToDTO(entity);
