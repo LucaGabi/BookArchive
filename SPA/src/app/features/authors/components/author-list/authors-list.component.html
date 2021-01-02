@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h2 class="h2">Authors List</h2>
+    <a routerLink="/authors/add/" class="btn btn-sm btn-primary">Add</a>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th class="text-center" scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of vmodel.state.allAuthors; let i = index">
+          <th scope="row">{{item.id}}</th>
+          <td>{{item.name}}</td>
+          <td class="text-center">
+            <a class="btn btn-sm btn-primary" routerLink="/authors/edit/{{item.id}}">Edit</a>
+            &nbsp;
+            <a class="btn btn-sm btn-danger" (click)="rem(item.id, i)">Delete</a>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

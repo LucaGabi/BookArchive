@@ -1,0 +1,65 @@
+<div class="row justify-content-center mt-5">
+  <div class="col-md-4">
+    <form #frm="ngForm"
+          (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Title</label>
+        <input class="form-control"
+               type="text"
+               [(ngModel)]="vmodel.state.book.title"
+               name="name"
+               required>
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <input class="form-control"
+               type="text"
+               [(ngModel)]="vmodel.state.book.description"
+               name="description"
+               required>
+      </div>      
+
+      <div class="form-group">
+        <label>Authors</label>
+        <select multiple class="form-control"
+                name="authorsIds"
+                [(ngModel)]="vmodel.state.authorIds">
+          <option *ngFor="let item of vmodel.state.allAuthors; let ix=index"
+                  [value]="item.id"
+                  [selected]="vmodel?.state?.book?.bookAuthors?.length &&
+                              vmodel?.state?.selAuthorIds[item.id]">
+                  {{item.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Image</label>
+        <input class="form-control"
+               type="file"
+               (change)="vmodel.setCoverImage($event)"
+               name="coverImage"
+               required>
+      </div>
+
+      <div class="form-group">
+        <button *ngIf="vmodel?.state?.book?.coverImagePath?.length"
+                class="btn btn-primary btn-block"
+                type="button"
+                (click)="vmodel.state.book.clearImage=!vmodel.state.book.clearImage"
+                >Clear Image</button>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary btn-block"
+                type="submit">{{vmodel.state.book.id?'Update Book':'Add Book'}}</button>
+      </div>
+    </form>
+
+    <ul class="has-error">
+      <li *ngFor="let item of vmodel.errorsFlat">{{item}}</li>
+    </ul>
+
+  </div>
+</div>

@@ -1,0 +1,26 @@
+curl -X GET "https://localhost:5001/api/Authors" -H  "accept: */*"
+
+
+#####
+
+curl 'https://localhost:5001/api/books' \
+  -H 'authority: localhost:5001' \
+  -H 'pragma: no-cache' \
+  -H 'cache-control: no-cache' \
+  -H 'accept: application/json' \
+  -H 'dnt: 1' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36' \
+  -H 'content-type: multipart/form-data' \
+  -H 'origin: http://localhost:4200' \
+  -H 'sec-fetch-site: cross-site' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'referer: http://localhost:4200/' \
+  -H 'accept-language: en-US,en;q=0.9,ro;q=0.8' \
+  --data-binary '{"authors":[{"id":1},{"id":3}],"coverImagePath":"side_bar.jpg","description":"carte 5252","title":"demo"}' \
+  --compressed
+
+
+#####
+post https://localhost:5001/api/books
+Content-Type: multipart/form-data
