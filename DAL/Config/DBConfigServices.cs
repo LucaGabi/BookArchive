@@ -10,8 +10,8 @@ namespace BookArchive.DAL
         {
             services.AddDbContext<BookArchiveDataContext>(b => b.UseSqlite(cns)
                                                     .EnableSensitiveDataLogging()
-                                                .EnableDetailedErrors()
-                                                .LogTo(Console.WriteLine));
+                                                    .EnableDetailedErrors()
+                                                    .LogTo(Console.WriteLine));
 
             services.AddScoped(typeof(DbContext), typeof(BookArchiveDataContext));
             services.AddScoped(typeof(IBookArchiveUOW), typeof(BookArchiveUnitOfWork));
