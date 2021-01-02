@@ -1,4 +1,6 @@
-﻿using BookArchive.DAL;
+﻿using AutoMapper;
+using BookArchive.DAL;
+using BookArchive.DAL.Models;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,10 +14,12 @@ namespace BookArchive.Application.CQRS
         public class AuthorUpdateCommandHandler : IRequestHandler<AuthorUpdateCommand, CQRSResult<AuthorGetDTO>>
         {
             private readonly IBookArchiveUOW uow;
+            private readonly IMapper mapper;
 
-            public AuthorUpdateCommandHandler(IBookArchiveUOW uow)
+            public AuthorUpdateCommandHandler(IBookArchiveUOW uow, IMapper mapper)
             {
                 this.uow = uow;
+                this.mapper = mapper;
             }
 
             public async Task<CQRSResult<AuthorGetDTO>> Handle(AuthorUpdateCommand request, CancellationToken cancellationToken)
@@ -23,13 +27,13 @@ namespace BookArchive.Application.CQRS
                 var exists = uow.AuthorsRepository.Contains(x => x.Id == request.Id);
                 if (exists)
                 {
-                    var entity = request.ToModel();
-                    uow.AuthorsRepository.Update(entity,null);
+                    var entity = mapper.Map<Author>(request);
+                    uow.AuthorsRepository.Update(entity);
                     await uow.Save();
-                    return AuthorGetMap.ToDTO(entity);
+                    return mapper.Map<AuthorGetDTO>(entity);
                 }
-                else 
-                    return (null as AuthorGetDTO).AsCQRSResult(code: 404);
+                else
+                    return mapper.Map<AuthorGetDTO>(request).AsCQRSResult(code: 404);
             }
 
 

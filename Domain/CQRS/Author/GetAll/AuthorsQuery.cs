@@ -1,4 +1,5 @@
-﻿using BookArchive.DAL;
+﻿using AutoMapper;
+using BookArchive.DAL;
 using MediatR;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +13,17 @@ namespace BookArchive.Application.CQRS
         public class AuthorQueryHandler : IRequestHandler<AuthorsQuery, CQRSResult<List<AuthorGetDTO>>>
         {
             private readonly IBookArchiveUOW uow;
+            private readonly IMapper mapper;
 
-            public AuthorQueryHandler(IBookArchiveUOW uow)
+            public AuthorQueryHandler(IBookArchiveUOW uow, IMapper mapper)
             {
                 this.uow = uow;
+                this.mapper = mapper;
             }
             public async Task<CQRSResult<List<AuthorGetDTO>>> Handle(AuthorsQuery request, CancellationToken cancellationToken)
             {
                 var authors = uow.AuthorsRepository.Get();
-                return authors.Select(x => AuthorGetMap.ToDTO(x)).ToList();
+                return mapper.Map<List<AuthorGetDTO>>(authors);
             }
 
         }

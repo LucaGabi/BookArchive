@@ -1,4 +1,5 @@
-﻿using BookArchive.DAL.Models;
+﻿using AutoMapper;
+using BookArchive.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,30 +13,12 @@ namespace BookArchive.Application.CQRS
         public bool ClearImage { get; set; }
     }
 
-    public static class BookUpdateMap
+    public class BookUpdateMap : Profile
     {
-        public static BookUpdateDTO ToDTO(this Book model, bool withLinks = true)
+        public BookUpdateMap()
         {
-            return new BookUpdateDTO
-            {
-                Id = model.Id,
-                Title = model.Title,
-                Description = model.Description,
-                CoverImagePath = model.CoverImagePath,
-                BookAuthors = model.Authors?.Select(x => new BookAuthorGetDTO { AuthorId = x.Id, BookId = model.Id }).ToArray()
-            };
-        }
-
-        public static Book ToModel(this BookUpdateDTO dto)
-        {
-            return new Book
-            {
-                Id=dto.Id,
-                Title = dto.Title,
-                Description = dto.Description,
-                AuthorBooks = dto.BookAuthors?.Select(x => x.ToModel()).ToArray(),
-                CoverImagePath = dto.CoverImagePath,
-            };
+            CreateMap<BookUpdateDTO, Book>()
+                .ReverseMap();
         }
     }
 }

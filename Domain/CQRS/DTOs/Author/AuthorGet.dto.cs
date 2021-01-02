@@ -1,4 +1,5 @@
-﻿using BookArchive.DAL.Models;
+﻿using AutoMapper;
+using BookArchive.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,30 +16,12 @@ namespace BookArchive.Application.CQRS
         public virtual ICollection<BookGetDTO> Books { get; set; }
     }
 
-    public static class AuthorGetMap
+    public class AuthorGetMap : Profile
     {
-        public static AuthorGetDTO ToDTO(this Author model, bool withLinks = true)
+        public AuthorGetMap()
         {
-            return new AuthorGetDTO
-            {
-                Id = model.Id,
-                Name = model.Name,
-                AuthorBooks = model.AuthorBooks?.Select(x => BookAuthorGetMap.ToDTO(x)).ToArray(),
-                Books = withLinks
-                        ? model.Books?.Select(x => BookGetMap.ToDTO(x, false)).ToArray()
-                        : new BookGetDTO[0]
-            };
-        }
-
-        public static Author ToModel(this AuthorGetDTO dto)
-        {
-            return new Author
-            {
-                Id = dto.Id,
-                Name = dto.Name,
-                AuthorBooks = dto.Books?.Select(x => new AuthorBook { AuthorId = dto.Id, BookId = x.Id }).ToArray(),
-                Books = null
-            };
+            CreateMap<AuthorGetDTO, Author>()
+                .ReverseMap();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using BookArchive.DAL.Models;
+﻿using AutoMapper;
+using BookArchive.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,19 +11,14 @@ namespace BookArchive.Application.CQRS
     {
         public int BookId { get; set; }
         public int AuthorId { get; set; }
-
     }
 
-    public static class BookAuthorGetMap
+    public class BookAuthorGetMap:Profile
     {
-        static public AuthorBook ToModel(this BookAuthorGetDTO link)
+        public BookAuthorGetMap()
         {
-            return new AuthorBook { AuthorId = link.AuthorId, BookId = link.BookId };
-        }
-
-        public static BookAuthorGetDTO ToDTO(this AuthorBook link)
-        {
-            return new BookAuthorGetDTO { AuthorId = link.AuthorId, BookId = link.BookId };
+            CreateMap<BookAuthorGetDTO, Book>()
+                .ReverseMap();
         }
     }
 }

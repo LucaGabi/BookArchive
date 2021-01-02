@@ -1,4 +1,5 @@
-﻿using BookArchive.DAL;
+﻿using AutoMapper;
+using BookArchive.DAL;
 using BookArchive.DAL.Models;
 using MediatR;
 using System.Threading;
@@ -13,19 +14,21 @@ namespace BookArchive.Application.CQRS
         public class AuthorDeleteCommandHandler : IRequestHandler<AuthorDeleteCommand, CQRSResult<AuthorGetDTO>>
         {
             private readonly IBookArchiveUOW uow;
+            private readonly IMapper mapper;
 
-            public AuthorDeleteCommandHandler(IBookArchiveUOW uow)
+            public AuthorDeleteCommandHandler(IBookArchiveUOW uow, IMapper mapper)
             {
                 this.uow = uow;
+                this.mapper = mapper;
             }
 
             public async Task<CQRSResult<AuthorGetDTO>> Handle(AuthorDeleteCommand request, CancellationToken cancellationToken)
             {
                 var author = uow.AuthorsRepository.GetById(request.Id);
-                if (author != null) uow.AuthorsRepository.Delete(author,null);
-                else return AuthorGetMap.ToDTO(null).AsCQRSResult(code: 404);
+                if (author != null) uow.AuthorsRepository.Delete(author);
+                else return new AuthorGetDTO { Id = request.Id }.AsCQRSResult(code: 404);
                 await uow.Save(cancellationToken);
-                return AuthorGetMap.ToDTO(new Author { Id = request.Id });
+                return new AuthorGetDTO { Id = request.Id };
             }
 
 
