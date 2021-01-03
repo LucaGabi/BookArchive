@@ -23,9 +23,9 @@ namespace BookArchive
         }
 
 
-        public IDbContextTransaction CreateTransaction()
+        public IDbTransaction CreateTransaction()
         {
-            return dataContext.Database.BeginTransaction();
+            return dataContext.CreateTransaction();
         }
 
         public async Task<int> Save(CancellationToken cancelationToken)

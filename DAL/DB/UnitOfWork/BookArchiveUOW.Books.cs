@@ -2,7 +2,7 @@
 
 namespace BookArchive
 {
-    public partial class BookArchiveUnitOfWork : IUnitOfWork
+    public partial class BookArchiveUnitOfWork
     {
         public IBooksRepository BooksRepository
         {

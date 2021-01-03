@@ -2,7 +2,7 @@
 
 namespace BookArchive
 {
-    public partial class BookArchiveUnitOfWork : IUnitOfWork
+    public partial class BookArchiveUnitOfWork
     {
         public IAuthorsRepository AuthorsRepository
         {
@@ -10,11 +10,6 @@ namespace BookArchive
             {
                 return (IAuthorsRepository)serviceProvider.GetService(typeof(IAuthorsRepository));
             }
-        }
-
-        IDbTransaction IUnitOfWork.CreateTransaction()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }
