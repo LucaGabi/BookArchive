@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
-using System;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -25,12 +24,12 @@ namespace BookArchive
 
         public IDbTransaction CreateTransaction()
         {
-            return dataContext.CreateTransaction();
+            return new EFDbTransaction(dataContext);
         }
 
         public async Task<int> Save(CancellationToken cancelationToken)
         {
-            return await dataContext.Save(cancelationToken);
+            return await dataContext.SaveChangesAsync(cancelationToken);
         }
     }
 }

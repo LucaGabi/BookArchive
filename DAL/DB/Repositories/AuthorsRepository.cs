@@ -7,10 +7,12 @@ namespace BookArchive
     public class AuthorsRepository : GenericEFRepository<Author>, IAuthorsRepository
     {
         private readonly BookArchiveDataContext dbx;
+        private readonly IBookArchiveUOW uow;
 
         public AuthorsRepository(BookArchiveDataContext dataContext, IBookArchiveUOW uow) : base(dataContext)
         {
             this.dbx = dataContext;
+            this.uow = uow;
         }
 
         public new IEnumerable<Author> Get()
@@ -35,7 +37,7 @@ namespace BookArchive
             try
             {
                 if (willCreateT)
-                    t = dbx.CreateTransaction();
+                    t = uow.CreateTransaction();
 
                 var dbo = dbx.Authors
                     .Include(x => x.AuthorBooks)
