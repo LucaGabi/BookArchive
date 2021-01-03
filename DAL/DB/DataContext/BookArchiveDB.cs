@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace BookArchive
 {
-    public partial class BookArchiveDataContext : DbContext, IUnitOfWork
+    public partial class BookArchiveDataContext : DbContext
     {
         public BookArchiveDataContext(DbContextOptions options) : base(options) { }
 
@@ -15,14 +15,5 @@ namespace BookArchive
             modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
         }
 
-        public IDbTransaction CreateTransaction()
-        {
-            return new EFDbTransaction(this);
-        }
-
-        public async Task<int> Save(CancellationToken cancelationToken = default)
-        {
-            return await base.SaveChangesAsync(cancelationToken);
-        }
     }
 }

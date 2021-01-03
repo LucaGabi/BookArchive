@@ -22,15 +22,14 @@ namespace BookArchive
             dataContext.Dispose();
         }
 
-
         public IDbTransaction CreateTransaction()
         {
-            return dataContext.CreateTransaction();
+            return new EFDbTransaction(dataContext);
         }
 
-        public async Task<int> Save(CancellationToken cancelationToken)
+        public async Task<int> Save(CancellationToken cancelationToken = default)
         {
-            return await dataContext.Save(cancelationToken);
+            return await dataContext.SaveChangesAsync(cancelationToken);
         }
 
     }
