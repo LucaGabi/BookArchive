@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -30,7 +29,7 @@ namespace BookArchive
                 .FirstOrDefault(x => x.Id == id);
         }
 
-        public override void Update(Author entity, IDbContextTransaction t = default)
+        public override void Update(Author entity, IDbTransaction t = default)
         {
             var willCreateT = t == default;
             try

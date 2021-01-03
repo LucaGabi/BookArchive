@@ -11,5 +11,10 @@ namespace BookArchive
                 return (IAuthorsRepository)serviceProvider.GetService(typeof(IAuthorsRepository));
             }
         }
+
+        IDbTransaction IUnitOfWork.CreateTransaction()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
