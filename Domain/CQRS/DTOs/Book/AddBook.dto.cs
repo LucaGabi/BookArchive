@@ -1,6 +1,4 @@
-﻿using BookArchive.DAL.Models;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace BookArchive.Application.CQRS

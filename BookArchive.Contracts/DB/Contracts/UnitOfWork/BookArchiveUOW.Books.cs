@@ -1,5 +1,5 @@
 ﻿
-namespace BookArchive.DAL
+namespace BookArchive
 {
     public partial interface IBookArchiveUOW 
     {

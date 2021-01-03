@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace BookArchive.Application
+namespace BookArchive
 {
     public interface IFileStorageService
     {

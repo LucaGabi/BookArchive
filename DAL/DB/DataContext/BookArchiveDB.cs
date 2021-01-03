@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BookArchive.DAL
+namespace BookArchive
 {
     public partial class BookArchiveDataContext : DbContext, IUnitOfWork
     {

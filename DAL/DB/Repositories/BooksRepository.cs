@@ -1,10 +1,9 @@
-﻿using BookArchive.DAL.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BookArchive.DAL
+namespace BookArchive
 {
     public class BooksRepository : GenericEFRepository<Book>, IBooksRepository
     {

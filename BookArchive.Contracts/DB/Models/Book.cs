@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BookArchive.DAL.Models
+namespace BookArchive
 {
     public class Book: BaseEntity
     {

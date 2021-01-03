@@ -1,6 +1,6 @@
 ﻿
 
-namespace BookArchive.DAL
+namespace BookArchive
 {
     public partial class BookArchiveUnitOfWork : IUnitOfWork
     {

@@ -1,7 +1,6 @@
-﻿using BookArchive.DAL.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace BookArchive.DAL
+namespace BookArchive
 {
     public interface IAuthorsRepository: IRepository<Author>
     {

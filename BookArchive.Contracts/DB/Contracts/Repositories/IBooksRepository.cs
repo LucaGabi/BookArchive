@@ -1,6 +1,5 @@
-﻿using BookArchive.DAL.Models;
-
-namespace BookArchive.DAL
+﻿
+namespace BookArchive
 {
     public interface IBooksRepository: IRepository<Book>
     {

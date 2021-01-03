@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BookArchive.DAL.Models
+namespace BookArchive
 {
     public abstract class BaseEntity
     {

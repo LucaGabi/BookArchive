@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BookArchive.DAL.Models
+namespace BookArchive
 {
     public class Author : BaseEntity
     {

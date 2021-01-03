@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BookArchive.DAL.Models
+namespace BookArchive
 {
     public class AuthorBook:BaseEntity {
         public int BookId { get; set; }   
