@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
@@ -16,12 +15,12 @@ namespace BookArchive
         public bool Contains(Expression<Func<T, bool>> predicate);
 
 
-        public void Add(T entity, IDbContextTransaction transaction = default);
+        public void Add(T entity, IDbTransaction transaction = default);
 
 
-        public void Update(T entity, IDbContextTransaction transaction = default);
+        public void Update(T entity, IDbTransaction transaction = default);
 
 
-        public void Delete(T entity, IDbContextTransaction transaction = default);
+        public void Delete(T entity, IDbTransaction transaction = default);
     }
 }

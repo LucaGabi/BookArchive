@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -16,9 +15,9 @@ namespace BookArchive
             modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
         }
 
-        public IDbContextTransaction CreateTransaction()
+        public IDbTransaction CreateTransaction()
         {
-            return Database.BeginTransaction();
+            return new EFDbTransaction(this);
         }
 
         public async Task<int> Save(CancellationToken cancelationToken = default)

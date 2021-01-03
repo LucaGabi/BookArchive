@@ -1,0 +1,10 @@
+diff a/API/BookArchive.API.csproj.user b/API/BookArchive.API.csproj.user	(rejected hunks)
+@@ -4,7 +4,7 @@
+     <Controller_SelectedScaffolderID>ApiControllerWithActionsScaffolder</Controller_SelectedScaffolderID>
+     <Controller_SelectedScaffolderCategoryPath>root/Controller</Controller_SelectedScaffolderCategoryPath>
+     <ActiveDebugProfile>API</ActiveDebugProfile>
+-    <ShowAllFiles>true</ShowAllFiles>
++    <ShowAllFiles>false</ShowAllFiles>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
