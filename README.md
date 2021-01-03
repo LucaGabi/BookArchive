@@ -6,3 +6,4 @@ De stiut:
 3. maparea pentru dto <-> model fara AutoMapper - varianta cu automapper are branch separat (adaugat recent)
 4. post / update pentru o carte foloseste un custom model binder care extinde [FromForm]
 5. baza de date configurata partial cu fluent api
+6. client js SPA angular2+
