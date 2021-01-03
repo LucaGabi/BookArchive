@@ -1,8 +1,7 @@
-﻿using BookArchive.DAL.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BookArchive.DAL
+namespace BookArchive
 {
     public class BookEntityConfiguration : IEntityTypeConfiguration<Book>
     {

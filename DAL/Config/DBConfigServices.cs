@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace BookArchive.DAL
+namespace BookArchive
 {
     public static class ConfigServices
     {

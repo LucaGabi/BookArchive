@@ -1,7 +1,5 @@
 ﻿
 using AutoMapper;
-using BookArchive.DAL.Models;
-using System.Linq;
 
 namespace BookArchive.Application.CQRS
 {

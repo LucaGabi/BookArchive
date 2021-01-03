@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookArchive.DAL", "DAL\Book
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookArchive.API", "API\BookArchive.API.csproj", "{40DB6934-AB08-4CF6-94F0-88C9AF286265}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookArchive.Contracts", "BookArchive.Contracts\BookArchive.Contracts.csproj", "{859ED9CD-C1E0-4EE4-A731-6EDABB033996}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{40DB6934-AB08-4CF6-94F0-88C9AF286265}.Release|x64.Build.0 = Release|Any CPU
 		{40DB6934-AB08-4CF6-94F0-88C9AF286265}.Release|x86.ActiveCfg = Release|Any CPU
 		{40DB6934-AB08-4CF6-94F0-88C9AF286265}.Release|x86.Build.0 = Release|Any CPU
+		{859ED9CD-C1E0-4EE4-A731-6EDABB033996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{859ED9CD-C1E0-4EE4-A731-6EDABB033996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{859ED9CD-C1E0-4EE4-A731-6EDABB033996}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{859ED9CD-C1E0-4EE4-A731-6EDABB033996}.Debug|x64.Build.0 = Debug|Any CPU
+		{859ED9CD-C1E0-4EE4-A731-6EDABB033996}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{859ED9CD-C1E0-4EE4-A731-6EDABB033996}.Debug|x86.Build.0 = Debug|Any CPU
+		{859ED9CD-C1E0-4EE4-A731-6EDABB033996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{859ED9CD-C1E0-4EE4-A731-6EDABB033996}.Release|Any CPU.Build.0 = Release|Any CPU
+		{859ED9CD-C1E0-4EE4-A731-6EDABB033996}.Release|x64.ActiveCfg = Release|Any CPU
+		{859ED9CD-C1E0-4EE4-A731-6EDABB033996}.Release|x64.Build.0 = Release|Any CPU
+		{859ED9CD-C1E0-4EE4-A731-6EDABB033996}.Release|x86.ActiveCfg = Release|Any CPU
+		{859ED9CD-C1E0-4EE4-A731-6EDABB033996}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

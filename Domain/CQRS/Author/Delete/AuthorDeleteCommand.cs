@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using BookArchive.DAL;
-using BookArchive.DAL.Models;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;

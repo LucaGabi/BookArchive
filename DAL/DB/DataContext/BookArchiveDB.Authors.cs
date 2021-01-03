@@ -1,8 +1,7 @@
-﻿using BookArchive.DAL.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 
-namespace BookArchive.DAL
+namespace BookArchive
 {
     public partial class BookArchiveDataContext
     {

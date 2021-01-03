@@ -3,7 +3,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BookArchive.DAL
+namespace BookArchive
 {
     public interface IUnitOfWork : IDisposable
     {

@@ -1,5 +1,4 @@
-﻿using BookArchive.DAL.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 
 
-namespace BookArchive.DAL
+namespace BookArchive
 {
     public class GenericEFRepository<T> : IRepository<T> where T : BaseEntity
     {
