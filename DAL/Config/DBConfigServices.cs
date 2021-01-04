@@ -13,9 +13,9 @@ namespace BookArchive
                                                 .EnableDetailedErrors()
                                                 .LogTo(Console.WriteLine));
 
+            services.AddTransient(typeof(IDbTransaction), typeof(EFDbTransaction));
             services.AddScoped(typeof(DbContext), typeof(BookArchiveDataContext));
             services.AddScoped(typeof(IBookArchiveUOW), typeof(BookArchiveUnitOfWork));
-
             services.AddScoped(typeof(IAuthorsRepository), typeof(AuthorsRepository));
             services.AddScoped(typeof(IBooksRepository), typeof(BooksRepository));
         }

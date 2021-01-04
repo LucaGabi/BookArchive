@@ -24,7 +24,8 @@ namespace BookArchive
 
         public IDbTransaction CreateTransaction()
         {
-            return new EFDbTransaction(dataContext);
+            var v = serviceProvider.GetService(typeof(IDbTransaction));
+            return (IDbTransaction)v;
         }
 
         public async Task<int> Save(CancellationToken cancelationToken = default)
