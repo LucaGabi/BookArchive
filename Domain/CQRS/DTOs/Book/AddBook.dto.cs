@@ -18,7 +18,7 @@ namespace BookArchive.Application.CQRS
     {
         public BookAddMap()
         {
-            CreateMap<BookAddDTO, Author>()
+            CreateMap<BookAddDTO, Book>()
                 .ReverseMap();
         }
     }
