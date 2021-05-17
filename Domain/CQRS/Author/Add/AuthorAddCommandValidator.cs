@@ -14,6 +14,7 @@ namespace BookArchive.Application.CQRS
 
             RuleFor(v => v.Name)
                 .Matches("[A-Za-z]+").WithMessage($"Nume poate sa contina doar caractere.");
+
         }
 
     }

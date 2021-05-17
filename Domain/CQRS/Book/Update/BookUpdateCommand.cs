@@ -54,7 +54,7 @@ namespace BookArchive.Application.CQRS
                     return mapper.Map<BookGetDTO>(entity);
                 }
                 else
-                    return mapper.Map<BookGetDTO>(request).AsCQRSResult(code: 404);
+                    return mapper.Map<BookGetDTO>(request).AsResult(code: 404);
             }
 
         }

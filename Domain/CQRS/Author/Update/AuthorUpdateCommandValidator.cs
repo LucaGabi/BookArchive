@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace BookArchive.Application.CQRS
 {
-    public class AuthorUpdateCommandValidator : AbstractValidator<AuthorAddCommand>
+    public class AuthorUpdateCommandValidator : AbstractValidator<AuthorUpdateCommand>
     {
        
         public AuthorUpdateCommandValidator()

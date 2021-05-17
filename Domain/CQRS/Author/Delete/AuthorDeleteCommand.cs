@@ -24,7 +24,7 @@ namespace BookArchive.Application.CQRS
             {
                 var author = uow.AuthorsRepository.GetById(request.Id);
                 if (author != null) uow.AuthorsRepository.Delete(author);
-                else return new AuthorGetDTO { Id = request.Id }.AsCQRSResult(code: 404);
+                else return new AuthorGetDTO { Id = request.Id }.AsResult(code: 404);
                 await uow.Save(cancellationToken);
                 return new AuthorGetDTO { Id = request.Id };
             }

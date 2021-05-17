@@ -23,7 +23,7 @@ namespace BookArchive.Application.CQRS
             {
                 var book = uow.BooksRepository.GetById(request.Id);
                 if (book != null) return mapper.Map<BookGetDTO>(book);
-                else return mapper.Map<BookGetDTO>(book).AsCQRSResult(code: 404);
+                else return mapper.Map<BookGetDTO>(book).AsResult(code: 404);
             }
 
         }

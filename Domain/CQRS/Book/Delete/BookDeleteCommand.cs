@@ -25,7 +25,7 @@ namespace BookArchive.Application.CQRS
             {
                 var book = uow.BooksRepository.GetById(request.Id);
                 if (book != null) uow.BooksRepository.Delete(book);
-                else return mapper.Map<BookGetDTO>(book).AsCQRSResult(code: 404);
+                else return mapper.Map<BookGetDTO>(book).AsResult(code: 404);
                 await uow.Save(cancellationToken);
                 return mapper.Map<BookGetDTO>(book);
             }
