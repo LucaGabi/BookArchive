@@ -7,3 +7,6 @@ De stiut:
 4. post / update pentru o carte foloseste un custom model binder care extinde [FromForm]
 5. baza de date configurata partial cu fluent api
 6. client js SPA angular2+
+
+Nota:
+- nu include autentificare scopul fiind de a demonstra organizarea codului
